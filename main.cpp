@@ -130,36 +130,6 @@ string llenadoProfesor(){
     } 
     return text ;
 }
-void buscar4(){
-    string temp , search;
-    system("clear");
-    std::cin.ignore();
-    std::cout<< "Digitar nombre o apellido: ";std::getline(std::cin , search);
-    temp = lecturaAlumnos() ;
-    vector <int> aux_1 = buscarPos(temp,search); 
-    mostrar(aux_1,temp);
-    temp.clear();  
-}
-void buscar5(){
-    string temp , search;
-    system("clear");
-    std::cin.ignore();
-    std::cout<< "Digite nombre o apellido: ";std::getline(std::cin , search);
-    temp = lecturaEmpleados() ;
-    vector <int> aux_2 = buscarPos(temp,search); 
-    mostrar(aux_2,temp);
-    temp.clear(); 
-}
-void buscar6(){
-    string temp , search;
-    system("clear");
-    std::cin.ignore();
-    std::cout<< "Digite nombre o apellido: ";std::getline(std::cin , search);
-    temp = lecturaProfesores() ;
-    vector <int> aux_2 = buscarPos(temp,search);
-    mostrar(aux_2,temp);
-    temp.clear();
-}
 
 void ejecutar(){
     bool iniciar = true;
@@ -224,31 +194,67 @@ void ejecutar(){
             ejecutar();     
         } 
         if (num == 4){
-            string aux;
-            buscar4();
-            std::cout<<"QUIERE BUSCAR A OTRO ALUMNO? S/N  ";std::cin>>aux;
-            if (aux == "s"){
-                buscar4();
-            }
+            while(true){
+                string val;
+                string temp , search;
+                system("clear");
+                std::cin.ignore();
+                std::cout<< "Digitar nombre o apellido o carrera : ";std::getline(std::cin , search);
+                temp = lecturaAlumnos() ;
+                vector <int> aux_1 = buscarPos(temp,search); 
+                mostrar(aux_1,temp);
+                temp.clear(); 
+                std::cout<<"QUIERE BUSCAR A OTRO ALUMNO? S/N  ";std::cin>>val;
+                if (val == "s" or val == "S"){
+                    continue;
+                }
+                if(val == "n" or val == "N"){
+                    break;
+                }
+            } 
             system("clear");
             menu();
         }
         if (num == 5){
-            string aux;
-            buscar5();
-            std::cout<<"QUIERE BUSCAR A OTRO EMPLEADO? S/N  ";std::cin>>aux;
-            if (aux == "s" or aux == "S" ){
-                buscar4();
+            while(true){
+                string val;
+                string temp , search;
+                system("clear");
+                std::cin.ignore();
+                std::cout<< "Digite nombre o apellido o curso : ";std::getline(std::cin , search);
+                temp = lecturaProfesores() ;
+                vector <int> aux_2 = buscarPos(temp,search);
+                mostrar(aux_2,temp);
+                temp.clear();
+                std::cout<<"QUIERE BUSCAR A OTRO PROFESOR? S/N  ";std::cin>>val;
+                if (val == "s" or val == "S"){
+                    continue;
+                }
+                if(val == "n" or val == "N"){
+                    break;
+                }
             }
             system("clear");
             menu();
         }
         if (num == 6){
-            string aux;
-            buscar6();
-            std::cout<<"QUIERE BUSCAR A OTRO PROFESOR? S/N  ";std::cin>>aux;
-            if (aux == "s" or aux == "S"){
-                buscar4();
+            while(true){
+                string val;
+                string temp , search;
+                system("clear");
+                std::cin.ignore();
+                std::cout<< "Digite nombre o apellido o puesto : ";std::getline(std::cin , search);
+                temp = lecturaEmpleados() ;
+                vector <int> aux_2 = buscarPos(temp,search); 
+                mostrar(aux_2,temp);
+                temp.clear();
+                std::cout<<"QUIERE BUSCAR A OTRO EMPLEADO? S/N  ";std::cin>>val;
+                if (val == "s" or val == "S"){
+                    continue;
+                }
+                if(val == "n" or val == "N"){
+                    break;
+                }
             }
             system("clear");
             menu();

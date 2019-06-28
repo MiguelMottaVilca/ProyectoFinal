@@ -14,8 +14,8 @@ void menu(){
     std::cout<<"        2 Crear PROFESOR "<<endl;
     std::cout<<"        3 Crear EMPLEADO "<<endl;
     std::cout<<"        4 Buscar ESTUDIANTE "<<endl;
-    std::cout<<"        5 Buscar EMPLEADO "<<endl;
-    std::cout<<"        6 Buscar PROFESOR"<<endl;
+    std::cout<<"        5 Buscar PROFESOR "<<endl;
+    std::cout<<"        6 Buscar EMPLEADO"<<endl;
     std::cout<<"        0 SALIR "<<endl;
     std::cout<<endl;
     std::cout<<endl;
