@@ -6,16 +6,9 @@ Estudiante::Estudiante(string nombre ,string apellido ,int edad ,string carrera 
     this -> nota = nota;
 }
 Estudiante::~Estudiante(){
-    cout<<"SE DESTRUYO ESTUDIANTE"<<endl;
+    // cout<<"SE DESTRUYO ESTUDIANTE"<<endl;
 }
-void Estudiante::setEstudiante(string _nombre , string _apellido , int _edad , string _carrera , float _nota){
-    // this->setEstudiante();
-    carrera = _carrera;
-    nota = _nota;
-}
-string Estudiante::getCarrera(){
-    return carrera;
-}
-float Estudiante::getNota(){
-    return nota;
+void Estudiante::mostrar(){
+    cout<< nombre <<" "<< apellido <<" "<< edad <<" "<< carrera <<endl;
+
 }

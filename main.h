@@ -6,16 +6,21 @@ namespace Main{
 
 void menu(){
     std::cout<<endl;
-    std::cout<<"  - LISTAS -  "<<endl;
-    std::cout<<"1 Crear ESTUDIANTE "<<endl;
-    std::cout<<"2 Crear PROFESOR "<<endl;
-    std::cout<<"3 Crear EMPLEADO "<<endl;
-    std::cout<<"4 Buscar ESTUDIANTE "<<endl;
-    std::cout<<"5 Buscar EMPLEADO "<<endl;
-    std::cout<<"6 Buscar PROFESOR"<<endl;
-    std::cout<<"0 SALIR "<<endl;
     std::cout<<endl;
-    std::cout<<"  - SELECCIONE OPCION -  "<<endl;
+    std::cout<<"             - LISTAS -  "<<endl;
+    std::cout<<endl;
+    std::cout<<endl;
+    std::cout<<"        1 Crear ESTUDIANTE "<<endl;
+    std::cout<<"        2 Crear PROFESOR "<<endl;
+    std::cout<<"        3 Crear EMPLEADO "<<endl;
+    std::cout<<"        4 Buscar ESTUDIANTE "<<endl;
+    std::cout<<"        5 Buscar EMPLEADO "<<endl;
+    std::cout<<"        6 Buscar PROFESOR"<<endl;
+    std::cout<<"        0 SALIR "<<endl;
+    std::cout<<endl;
+    std::cout<<endl;
+    std::cout<<"       - SELECCIONE OPCION -  "<<endl;
+    std::cout<<endl;
     std::cout<<endl;
 }
 
@@ -39,8 +44,6 @@ void agregarEmpleado(string text){
         std::cout<<"No se  abrir el archivo"<<endl;
 
     archivo<< text;
-    // archivo<<endl;
-    
     archivo.close();
 }
 void agregarProfesor(string text){
@@ -56,7 +59,6 @@ void agregarProfesor(string text){
     archivo.close();
 }
 string lecturaAlumnos(void){
-
     ifstream archivo;
     string texto;
 
@@ -72,7 +74,6 @@ string lecturaAlumnos(void){
     return texto  ;
 }
 string lecturaEmpleados(void){
-
     ifstream archivo;
     string texto;
 
@@ -88,7 +89,6 @@ string lecturaEmpleados(void){
     return texto  ;
 }
 string lecturaProfesores(void){
-
     ifstream archivo;
     string texto;
 
@@ -138,9 +138,9 @@ vector <int> buscarPos(string text ,string search){
     }
     return myVector;
 }
-
 void mostrar(vector <int> vec , string text){
     std::cout<<endl;
+    
     for(int i = 0 ; i < vec.size() ; i++){
         int pos = vec[i];
         string aux = "_ -";
@@ -150,7 +150,6 @@ void mostrar(vector <int> vec , string text){
                 pos++;
                 continue;
             }
-            
             if (text[pos] != aux[1]){
                 std::cout<<" ";
                 pos++;

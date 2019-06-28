@@ -7,15 +7,8 @@ Empleado::Empleado(string nombre ,string apellido ,int edad ,float salario  ,str
     this -> trabajo = trabajo;
 }
 Empleado::~Empleado(){
-    cout<<"SE DESTRUYO EMPLEADO"<<endl;
+    // cout<<"SE DESTRUYO EMPLEADO"<<endl;
 }
-void Empleado::setEmpleado(string _nombre , string _apellido , int _edad , float _salario , string _trabajo){
-    salario = _salario;
-    trabajo = _trabajo;
-}
-float Empleado::getSalario(){
-    return salario;
-}
-string Empleado::getTrabajo(){
-    return trabajo;
+void Empleado::mostrar(){
+    cout<< nombre <<" "<< apellido <<" "<< edad <<" "<< salario <<" "<< trabajo <<endl;
 }

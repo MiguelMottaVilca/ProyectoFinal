@@ -14,6 +14,7 @@ class Profesor : public Persona , public Curso{
     public:
         Profesor(string ,string ,int ,float , string) ;
         ~Profesor();
+        void mostrar();
 };
 
 #endif  //Profesor_H

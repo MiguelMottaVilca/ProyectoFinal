@@ -7,5 +7,8 @@ Profesor::Profesor(string nombre , string apellido , int edad , float salario, s
 }
 
 Profesor::~Profesor(){
-    cout<<"SE DESTRUYO Profesor"<<endl;
+    // cout<<"SE DESTRUYO Profesor"<<endl;
+}
+void Profesor::mostrar(){
+    cout<< nombre <<" "<< apellido <<" "<< edad <<" "<< salario<<" "<< curso <<endl;
 }

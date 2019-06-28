@@ -14,10 +14,6 @@ class Persona{
     public:
         Persona(string ,string ,int );
         ~Persona();
-        void setPersona(string ,string ,int);
-        string getNombre();
-        string getApellido();
-        int getEdad();
 };
 
 #endif

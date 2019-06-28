@@ -12,9 +12,7 @@ class Empleado : public Persona{
     public:
         Empleado(string ,string ,int ,float , string ) ;
         ~Empleado();
-        void setEmpleado(string ,string ,int  ,float , string );
-        float getSalario();
-        string getTrabajo();
+        void mostrar();
 };
 
 #endif  //EMPLEADO_H

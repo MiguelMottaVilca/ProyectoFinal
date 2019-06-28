@@ -13,9 +13,7 @@ class Estudiante : public Persona{
     public:
         Estudiante(string ,string ,int ,string ,float);
         ~Estudiante();
-        void setEstudiante(string ,string ,int ,string ,float);
-        string getCarrera();
-        float getNota();
+        void mostrar();
 };
 
 #endif  //ESTUDIANTE_H

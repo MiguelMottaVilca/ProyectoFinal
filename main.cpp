@@ -15,7 +15,7 @@ using namespace Main;
 string llenadoEstudiante(){
     string nombre , apellido , carrera;
     int edad , notas ;
-
+    while(true){
     std::cin.ignore();
 
     std::cout<<"NOMBRE: ";std::getline(std::cin , nombre);
@@ -27,6 +27,16 @@ string llenadoEstudiante(){
     std::cout<<endl;
     Estudiante estudiante(nombre,apellido,edad,carrera,notas);
 
+    estudiante.mostrar();
+    char val;
+    std::cout<<endl;
+    std::cout<<"¿QUIERE CORREGIR ALGUN ERROR? S/N ";std::cin>>val;
+    std::cout<<endl;
+    if (val == 'N' or val == 'n'){
+        break;
+    }
+
+    }
     system("clear"); 
 
     string text;
@@ -36,22 +46,13 @@ string llenadoEstudiante(){
 
     text = aux.str();
 
-    char val;
-    std::cout<<"¿Quires crear otro Estudiante? S/N ";std::cin >> val ;
-
-    if (val == 's'){
-        llenadoEstudiante();
-    }
-    if(val == 'n'){
-        menu();
-    } 
     return text ;
 }
 string llenadoEmpleado(){
     string nombre, apellido,trabajo,curso;
     int edad;
     float sueldo;
-    
+    while(true){
     std::cin.ignore();
 
     std::cout<<"NOMBRE: ";std::getline(std::cin , nombre);
@@ -62,6 +63,16 @@ string llenadoEmpleado(){
     std::cout<<endl;
     Empleado empleado(nombre,apellido,edad,sueldo,trabajo);
 
+    empleado.mostrar();
+    char val;
+    std::cout<<endl;
+    std::cout<<"¿QUIERE CORREGIR ALGUN ERROR? S/N ";std::cin>>val;
+    std::cout<<endl;
+    if (val == 'N' or val == 'n'){
+        break;
+    }
+    }
+
     system("clear"); 
 
     string text;
@@ -71,60 +82,57 @@ string llenadoEmpleado(){
 
     text = aux.str();
 
-    char val;
-    std::cout<<"¿Quires crear otro Empleado? S/N ";std::cin >> val ;
-    std::cout<< endl;
-
-    if (val == 's'){
-        llenadoEmpleado();
-    }
-    if(val == 'n'){
-        menu();
-    } 
     return text ;
 }
 string llenadoProfesor(){
-    string nombre, apellido,curso;
+    string nombre, apellido,trabajo,curso;
     int edad;
-    float  salario;
-    
+    float sueldo;
+    while(true){
     std::cin.ignore();
 
     std::cout<<"NOMBRE: ";getline(std::cin , nombre);
     std::cout<<"APELLIDO: ";getline(std::cin , apellido);
     std::cout<<"EDAD: ";std::cin>> edad;
-    std::cout<<"SUELDO: ";std::cin>> salario;
+    std::cout<<"SUELDO: ";std::cin>> sueldo;
     std::cout<<"CURSO: ";std::cin>>curso;
     std::cout<<endl;
 
-    Profesor profesor(nombre,apellido,edad,salario,curso);
+    Profesor profesor(nombre,apellido,edad,sueldo,curso);
+    profesor.mostrar();
+    char val;
+    std::cout<<endl;
+    std::cout<<"¿QUIERE CORREGIR ALGUN ERROR? S/N ";std::cin>>val;
+    std::cout<<endl;
+    if (val == 'N' or val == 'n'){
+        break;
+    }
+    }
 
     system("clear"); 
 
     string text;
     ostringstream aux;
 
-    aux<< nombre <<"_"<< apellido <<"_"<< edad <<"_"<< salario <<"_"<< curso <<"----";
+    aux<< nombre <<"_"<< apellido <<"_"<< edad <<"_"<< sueldo <<"_"<< curso <<"----";
 
     text = aux.str();
 
     char val;
     std::cout<<"¿Quieres crear otro Empleado? S/N ";std::cin >> val ;
     std::cout<< endl;
-
-    if(val == 's'){
+    system("clear");
+    if(val == 's' or val == 'S'){
         llenadoEmpleado();
     }
-    if(val == 'n'){
+    if(val == 'n' or val == 'N'){
         menu();
     } 
     return text ;
 }
 void buscar4(){
-    string temp;
-
+    string temp , search;
     system("clear");
-    string search;
     std::cin.ignore();
     std::cout<< "Digitar nombre o apellido: ";std::getline(std::cin , search);
     temp = lecturaAlumnos() ;
@@ -138,9 +146,8 @@ void buscar5(){
     std::cin.ignore();
     std::cout<< "Digite nombre o apellido: ";std::getline(std::cin , search);
     temp = lecturaEmpleados() ;
-    std::cout<<temp<<std::endl;
     vector <int> aux_2 = buscarPos(temp,search); 
-    mostrar(aux_2,search);
+    mostrar(aux_2,temp);
     temp.clear(); 
 }
 void buscar6(){
@@ -149,7 +156,9 @@ void buscar6(){
     std::cin.ignore();
     std::cout<< "Digite nombre o apellido: ";std::getline(std::cin , search);
     temp = lecturaProfesores() ;
-    std::cout<< temp <<std::endl;
+    vector <int> aux_2 = buscarPos(temp,search);
+    mostrar(aux_2,temp);
+    temp.clear();
 }
 
 void ejecutar(){
@@ -161,20 +170,56 @@ void ejecutar(){
         std::cout<<endl;
 
         if (num == 1){
-            system("clear"); 
-            agregarAlumno(llenadoEstudiante());
+            while(true){
+                system("clear"); 
+                agregarAlumno(llenadoEstudiante());
+                char val;
+                std::cin.ignore();
+                std::cout<<"¿Quires crear otro Estudiante? S/N ";std::cin >> val ;
+                if (val == 's' or val == 'S'){
+                    continue;
+                }
+                if(val == 'n' or val == 'N'){
+                    break;
+                } 
+            }
             num = 0;
+            menu();
             ejecutar();
         }
         if (num == 2){
-            system("clear");
-            agregarProfesor(llenadoProfesor());
+            while(true){
+                system("clear");
+                agregarProfesor(llenadoProfesor());
+                char val;
+                std::cin.ignore();
+                std::cout<<"¿Quires crear otro Empleado? S/N ";std::cin >> val ;
+                std::cout<< endl;
+                if (val == 's' or val == 'S'){
+                    continue;
+                }
+                if(val == 'n' or val == 'N'){
+                    break;
+                } 
+            }
             num = 0;
             ejecutar();
         }
         if (num == 3){
-            system("clear"); 
-            agregarEmpleado(llenadoEmpleado());
+            while(true){
+                system("clear"); 
+                agregarEmpleado(llenadoEmpleado());
+                char val;
+                std::cin.ignore();
+                std::cout<<"¿Quires crear otro Empleado? S/N ";std::cin >> val ;
+                std::cout<< endl;
+                if (val == 's' or val == 'S'){
+                    continue;
+                }
+                if(val == 'n' or val == 'N'){
+                    break;
+                } 
+            }
             num = 0;
             ejecutar();     
         } 
@@ -185,28 +230,33 @@ void ejecutar(){
             if (aux == "s"){
                 buscar4();
             }
+            system("clear");
+            menu();
         }
         if (num == 5){
             string aux;
             buscar5();
-            std::cout<<"QUIERE BUSCAR A OTRO ALUMNO? S/N  ";std::cin>>aux;
-            if (aux == "s"){
+            std::cout<<"QUIERE BUSCAR A OTRO EMPLEADO? S/N  ";std::cin>>aux;
+            if (aux == "s" or aux == "S" ){
                 buscar4();
             }
+            system("clear");
+            menu();
         }
         if (num == 6){
             string aux;
             buscar6();
-            std::cout<<"QUIERE BUSCAR A OTRO ALUMNO? S/N  ";std::cin>>aux;
-            if (aux == "s"){
+            std::cout<<"QUIERE BUSCAR A OTRO PROFESOR? S/N  ";std::cin>>aux;
+            if (aux == "s" or aux == "S"){
                 buscar4();
             }
+            system("clear");
+            menu();
         }
         if (num == 0)
             iniciar = false;
     }
 }
-
 
 int main(){
 
