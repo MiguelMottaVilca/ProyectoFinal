@@ -173,6 +173,7 @@ void ejecutar(){
                 } 
             }
             num = 0;
+            menu();
             ejecutar();
         }
         if (num == 3){
@@ -191,6 +192,7 @@ void ejecutar(){
                 } 
             }
             num = 0;
+            menu();
             ejecutar();     
         } 
         if (num == 4){
