@@ -239,8 +239,7 @@ void ejecutar(){
         }
         if (num == 6){
             while(true){
-                string val;
-                string temp , search;
+                string val , temp , search;
                 system("clear");
                 std::cin.ignore();
                 std::cout<< "Digite nombre o apellido o puesto : ";std::getline(std::cin , search);
@@ -259,12 +258,93 @@ void ejecutar(){
             system("clear");
             menu();
         }
-        if (num == 0)
-            iniciar = false;
-    }
-}
+        if (num == 7){
+            while(true){
+                string val , temp , search;
+                int num;
+                system("clear");
+                std::cin.ignore();
+                std::cout<< "Digite nombre o apellido o puesto : ";std::getline(std::cin , search);
+                temp = lecturaAlumnos() ;
+                vector <int> aux_2 = buscarPos(temp,search);
+                mostrar(aux_2,temp);
+                std::cout<<"QUE ESTUDIANTE DESEA BORRAR?"<<endl;
+                std::cout<<endl;
+                std::cout<<"Digite el numero: ";cin>>num;
+                //desde
+                num--;
+                borrado(temp , num);
+                //hasta
+                std::cout<<"QUIERE BORRAR OTRO ESTUDIANTE? S/N  ";std::cin>>val;
+                if (val == "s" or val == "S"){
+                    continue;
+                }
+                if(val == "n" or val == "N"){
+                    break;
+                }
+            }
+            system("clear");
+            menu();
+        }
+        if (num == 8){
+            while(true){
+                string val , temp , search;
+                int num;
+                system("clear");
+                std::cin.ignore();
+                std::cout<< "Digite nombre o apellido o puesto : ";std::getline(std::cin , search);
+                temp = lecturaProfesores() ;
+                vector <int> aux_2 = buscarPos(temp,search);
+                mostrar(aux_2,temp);
+                std::cout<<"QUE PROFESOR DESEA BORRAR?"<<endl;
+                std::cout<<endl;
+                std::cout<<"Digite el numero: ";cin>>num;
+                // borrado();
 
-int main(){
+                std::cout<<"QUIERE BORRAR OTRO PROFESOR? S/N  ";std::cin>>val;
+                if (val == "s" or val == "S"){
+                    continue;
+                }
+                if(val == "n" or val == "N"){
+                    break;
+                }
+            }
+            system("clear");
+            menu();
+        }
+        if (num == 9){
+            while(true){
+                string val , temp , search;
+                int num;
+                system("clear");
+                std::cin.ignore();
+                std::cout<< "Digite nombre o apellido o puesto : ";std::getline(std::cin , search);
+                temp = lecturaEmpleados() ;
+                vector <int> aux_2 = buscarPos(temp,search);
+                mostrar(aux_2,temp);
+                std::cout<<"QUE EMPLEADO DESEA BORRAR?"<<endl;
+                std::cout<<endl;
+                std::cout<<"Digite el numero: ";cin>>num;
+                // borrado();
+
+                std::cout<<"QUIERE BORRAR OTRO EMPLEADO? S/N  ";std::cin>>val;
+                if (val == "s" or val == "S"){
+                    continue;
+                }
+                if(val == "n" or val == "N"){
+                    break;
+                }
+            }
+            system("clear");
+            menu();
+        }
+        if (num == 0){
+            break;
+        }
+    }
+
+}
+int main(){ 
 
     menu();
     ejecutar();

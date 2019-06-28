@@ -16,6 +16,9 @@ void menu(){
     std::cout<<"        4 Buscar ESTUDIANTE "<<endl;
     std::cout<<"        5 Buscar PROFESOR "<<endl;
     std::cout<<"        6 Buscar EMPLEADO"<<endl;
+    std::cout<<"        7 Borrado ESTUDIANTE"<<endl;
+    std::cout<<"        8 Borrado PROFESOR"<<endl;
+    std::cout<<"        9 Borrado EMPLEADO"<<endl;
     std::cout<<"        0 SALIR "<<endl;
     std::cout<<endl;
     std::cout<<endl;
@@ -140,9 +143,11 @@ vector <int> buscarPos(string text ,string search){
 }
 void mostrar(vector <int> vec , string text){
     std::cout<<endl;
-    
+    int cont = 1;
     for(int i = 0 ; i < vec.size() ; i++){
         int pos = vec[i];
+        std::cout<< cont <<"· ";
+        cont++;
         string aux = "_ -";
         while(true){
             if (text[pos] != aux[0]){
@@ -172,6 +177,18 @@ void mostrar(vector <int> vec , string text){
     }
     std::cout<<endl;
 }
+//aqui
+void borrado(string temp , int pos){
+    std::cout<<"ok"<<endl;
+    string a;
+    int cont = pos;
+    for(int i =0;i<pos;i++){
+        cont++;
+    }
+    for(;cont != '\0';cont++){
+        a+=temp;
+    }
+    std::cout<<a<<endl;
 
-
+}
 }
